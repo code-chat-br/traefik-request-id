@@ -1,0 +1,9 @@
+displayName: Request ID Middleware
+type: middleware
+
+import: https://github.com/code-chat-br/traefik-request-id
+
+summary: Adds or propagates X-Request-ID in request and response headers.
+
+testData:
+  headerName: X-Request-ID
