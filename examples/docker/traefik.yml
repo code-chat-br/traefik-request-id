@@ -1,0 +1,18 @@
+experimental:
+  plugins:
+    requestid:
+      moduleName: github.com/code-chat-br/traefik-request-id
+      version: v0.1.0
+
+api:
+  dashboard: true
+  insecure: true
+
+entryPoints:
+  web:
+    address: ":80"
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: public_network
