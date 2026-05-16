@@ -86,7 +86,7 @@ Add the plugin to your Traefik static configuration.
 experimental:
   plugins:
     requestid:
-      moduleName: github.com/jrCleber/traefik-request-id
+      moduleName: github.com/code-chat-br/traefik-request-id
       version: v0.1.0
 ```
 
@@ -96,7 +96,7 @@ For local development:
 experimental:
   localPlugins:
     requestid:
-      moduleName: github.com/jrCleber/traefik-request-id
+      moduleName: github.com/code-chat-br/traefik-request-id
 ```
 
 ## Dynamic configuration
@@ -216,7 +216,7 @@ Example folder structure:
 plugins-local/
 └── src/
     └── github.com/
-        └── jrCleber/
+        └── code-chat-br/
             └── traefik-request-id/
                 ├── go.mod
                 ├── go.sum
@@ -261,7 +261,7 @@ Example `.traefik.yml`:
 displayName: Request ID Middleware
 type: middleware
 
-import: github.com/jrCleber/traefik-request-id
+import: github.com/code-chat-br/traefik-request-id
 
 summary: Adds or propagates X-Request-ID in request and response headers.
 
