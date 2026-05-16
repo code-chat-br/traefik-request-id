@@ -23,7 +23,7 @@ type RequestID struct {
 	headerName string
 }
 
-func New(ctx context.Context, next http.Handler, config *Config, name string) (*RequestID, error) {
+func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
 	headerName := config.HeaderName
 
 	if headerName == "" {
