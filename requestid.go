@@ -1,4 +1,4 @@
-package xrequestid
+package traefik_request_id
 
 import (
 	"context"
