@@ -1,4 +1,4 @@
-module codechat/requestid
+module github.com/code-chat-br/traefik-request-id
 
 go 1.26.1
 
