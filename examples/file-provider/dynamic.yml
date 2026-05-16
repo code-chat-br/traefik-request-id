@@ -1,0 +1,21 @@
+http:
+  routers:
+    whoami:
+      rule: Host(`whoami.localhost`)
+      entryPoints:
+        - web
+      service: whoami
+      middlewares:
+        - request-id
+
+  middlewares:
+    request-id:
+      plugin:
+        requestid:
+          headerName: X-Request-ID
+
+  services:
+    whoami:
+      loadBalancer:
+        servers:
+          - url: http://whoami:80
