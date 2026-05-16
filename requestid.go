@@ -23,7 +23,7 @@ type RequestID struct {
 	headerName string
 }
 
-func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
+func New(ctx context.Context, next http.Handler, config *Config, name string) (*RequestID, error) {
 	headerName := config.HeaderName
 
 	if headerName == "" {
@@ -49,9 +49,9 @@ func (r *RequestID) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 
 		requestID = id.String()
 		req.Header.Set(r.headerName, requestID)
-	} else {
-		rw.Header().Set(r.headerName, requestID)
 	}
+
+	rw.Header().Set(r.headerName, requestID)
 
 	r.next.ServeHTTP(rw, req)
 }
