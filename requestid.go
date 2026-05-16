@@ -49,9 +49,9 @@ func (r *RequestID) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 
 		requestID = id.String()
 		req.Header.Set(r.headerName, requestID)
+	} else {
+		rw.Header().Set(r.headerName, requestID)
 	}
-
-	rw.Header().Set(r.headerName, requestID)
 
 	r.next.ServeHTTP(rw, req)
 }
