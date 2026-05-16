@@ -1,0 +1,24 @@
+services:
+  traefik:
+    image: traefik:v3.6.7
+    container_name: traefik
+    command:
+      - --configFile=/etc/traefik/traefik.yml
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./dynamic.yml:/etc/traefik/dynamic.yml:ro
+    networks:
+      - public_network
+
+  whoami:
+    image: traefik/whoami:v1.11
+    container_name: whoami
+    networks:
+      - public_network
+
+networks:
+  public_network:
+    name: public_network
